@@ -1,0 +1,11 @@
+<resources>
+  <!-- Base application theme. -->
+  <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <item name="colorPrimary">@color/brandPink</item>
+    <item name="colorPrimaryDark">@color/brandPinkDark</item>
+    <item name="colorPrimaryVariant">@color/brandPinkDark</item>
+    <item name="colorSecondary">@color/brandGreen</item>
+    <item name="colorSecondaryVariant">@color/brandGreenDark</item>
+  </style>
+
+</resources>
