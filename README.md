@@ -1,8 +1,7 @@
 # Intro
 
-# 1 Color naming 
-First of all we have to select our colors. As far as in Android Studio 4.0.1if you create a new project with an empty activity
-The colors files looks like this.
+# 1. Color naming 
+First of all, we have to select our colors. As far as in Android Studio 4.0.1 if you create a new project with the empty activity wizard, the colors file looks like this.
 
 ```xml
 <resources>
@@ -12,29 +11,32 @@ The colors files looks like this.
 </resources>
 ```
 
-As it is recommended th colors should have literal names (describe the value not how it's used). You can find how to name colors [here](), use the [Material colors guide](), use an Plugin like [this one]() or a mix of all of †hem.
+As it is recommended the colors should have literal names (describe the value not how it's used). 
+You can find how to name colors [here](), use the [Material colors guide](), use a Plugin like [this one]() or a mix of all of them.
 
-  e
 ```xml
 <resources>
-  <color name="brandPink">#990066</color>
+  <color name="brandPink">#880033</color>
   <color name="brandPinkDark">#66003c</color>
   <color name="brandGreen">#009933</color>
+  <color name="brandGreenDark">#007700</color>
+  <color name="brandWhite">#DCDCDC</color>
+  <color name="brandBlack">#090909</color>
 </resources>
 ```  
 
-Now that we have our colors set them in out theme attributes.
+Now that we have our colors  we have to set them in our theme attributes.
 
 > You can learn about theme attributes in my previous post in the section [Theme attrs in less than 100 words.]
   
 
-# 2 Color theme attributes
+# 2. Color theme attributes
 
-An image is worth a 1000 words. So lets get that image.
+An image is worth 1000 words.
 
-![color_attributes](imgs/color_attributes)
+![color_attributes](imgs/color_attributes.png)
 
-Here we can see th 12 attributes that the Material Design Library offer us.
+Here we can see the 12 attributes that the Material Design Library offer us.
 
 ```
 colorPrimary
@@ -56,14 +58,17 @@ colorOnError
 
 ```
 
-As you can see the colors attributes are divided in some colors like `colorPrimary`, and in how should the background of that color be like `colorOnPrimary`.
+As you can see the colors attributes are divided in some colors like `colorPrimary`, and in how should the foregound of that color be like `colorOnPrimary`.
+
+![image of a fab button]()
 
 This is very helpfull because we have now one place where we define our colors and also how the foreground of that color is, so we know that there wont be visibility problems, like if a dark colored button has dark colored text.
 There is a relation btween primary/varinat and/ on. If you change one check the others 
-`Despite being separate attributes, there’s an inherent link between a color, its variant (if one exists), and its “On” color (eg. colorPrimary, colorPrimaryVariant and colorOnPrimary). Overriding one means you need to check the others to see if they make sense and meet accessibility requirements.`
 
+Between `main` ,`variant`  and `on`  colors  there is a link. Overriding one means you need to check the others 2.
 
 # 3 Update your theme with your colors
+Now that we have our colors set lets apply them to our Theme.
 
 First of all and form Androdis Studio 4.0.1 the Empty Activity wizard creates  this style
 ```xml
@@ -79,20 +84,16 @@ First of all and form Androdis Studio 4.0.1 the Empty Activity wizard creates  t
 </resources>
 ```
 
-Lets clen this up.
+Lets clean this up.
 
-First, make the parent to inherit from a MD theme aike `Theme.MaterialComponents.DayNight.NoActionBar` For that first get the implementation `com.google.android.material:material:1.2.1` library.
+First, make the parent to inherit from a MD theme aike `Theme.MaterialComponents.DayNight.NoActionBar` 
+> For that first add the libray `com.google.android.material:material:1.2.1` in your gradle module file.
 
-Second change the name to reflect that it is a theme. 
-> About naming Themes with Theme prefix Widgets with Widge prefix
-
-
-We can keep most of th 'stand colrs the same and jsut focus on the one that give our app it uniqueness. primary , secondary and its variantes.
+Second, change the name to reflect that it is a theme. 
 
 `values/themes.xml`
 ```xml
-  <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-    <!-- Customize your theme here. -->
+  <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
     <item name="colorPrimary">@color/brandPink</item>
     <item name="colorPrimaryVariant">@color/brandPinkDark</item>
     <item name="colorSecondary">@color/brandGreen</item>
@@ -101,12 +102,58 @@ We can keep most of th 'stand colrs the same and jsut focus on the one that give
     
 ```
 
-Finally and most important move it to a themes.xml file.
+Finally and most important move it to a `themes.xml` file.
 
-> Explain files and files names
->
+## Note about naming and file system: 
+### Naming
+For Themes and Widget Styles the convention is:
 
-# 6 But 12 attributes are not enough for my app
+ * Use `Theme.YourAppsName.ThemeVariantName` for the themes 
+ * Use `Widget.YourAppsName.WidgetType.WidgetVariantName` for the widget 
+ * Themes will be set for a `theme` in a xml.
+ * Widgets will be set for a `stlyle` in a xml.
+ With this it is easy to see that we are not missuing themes and widgets.
+
+You won't need to change all of them. Start changing only the Primary and Secondary and their cousins (variant and on). The rest will most of the time do the job.
+
+### Files
+* Add your themes in `themes.xml` file
+* Add your widget styles in `styles.xml` file
+* Add your colors in `xyz.xml` file
+* Add your typographies in `type.xml` file
+
+Now if we run our app we can see how the colors are applied as the theme determine.
+
+# 4 Widgets and default attributes.
+Let's see how the widgets aslo aplyed the theme we just created.
+
+You might be tempted to create a style for the buttons with you `attr/colorPrimary` and `attr/colorOnPrimary`. Don't do that
+```xml
+Sample of a style with button and colorPrimary etc.
+```
+
+Android Systyem and MD will do all for you.
+
+MD website has been recenlty updated with all the information about theme attributes so now is very easy to understand and modify how them work.
+
+For example The button colors is set to primary and onPrimary so you don't have to do nothnig. 
+
+There are couple of places where this can be more complicated that it looks like, but for most places you wont have problems.
+
+# 5 DarkMode
+To test the DarkMode we can simple test how it look like as a far as know.
+
+Copy Paste this and check it out
+```kotlin
+
+```
+
+It does not look good because as we can
+
+We need just to create another thme inherinitn most of the Base theme and change our primary...
+
+
+# 6 What if 12 attributes are not enough
 One of the power of theming is the avility to change the full UI styles easily. You can have 2 themes for for example normal and premium users.
 The primary color is different for both, just creating a  new theme with the differnt primary color will be enough and and just chaning the theme for each ot the user types will be sufficient.
 
@@ -158,8 +205,6 @@ app:materialThemeOverlay: Only works with MDC widgets, works in default styles`
 
 # MDC Widgtes : Other post
 ## Custom Widgets
-
-# DarkMode
 
 # Use a Base Theme
 
