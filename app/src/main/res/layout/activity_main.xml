@@ -6,17 +6,27 @@
   android:layout_height="match_parent"
   tools:context=".MainActivity">
 
-  <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:background="?attr/colorPrimary"
-    android:text="Android Theming: Colors"
-    android:textColor="?attr/colorOnPrimary"
-    android:textSize="48sp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
+  <FrameLayout
+    android:id="@+id/fragment_container"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
+
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bottomNavigation"
+    style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:layout_gravity="bottom"
+    app:itemIconSize="24dp"
+    app:labelVisibilityMode="selected"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:menu="@menu/bottom_navigation_menu" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

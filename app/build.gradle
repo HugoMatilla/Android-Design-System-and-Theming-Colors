@@ -14,7 +14,9 @@ android {
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
-
+  kotlinOptions {
+    jvmTarget = JavaVersion.VERSION_1_8.toString()
+  }
   buildTypes {
     release {
       minifyEnabled false
@@ -30,6 +32,8 @@ dependencies {
   implementation 'androidx.appcompat:appcompat:1.2.0'
   implementation 'com.google.android.material:material:1.2.1'
   implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+  implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+  implementation 'androidx.fragment:fragment-ktx:1.2.5'
 
   testImplementation 'junit:junit:4.12'
   androidTestImplementation 'androidx.test.ext:junit:1.1.2'

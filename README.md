@@ -1,7 +1,7 @@
 # Intro
-
+This is a continuation to the Article [theming](). You don't have to read it if you dont't want but have it open because you might need to read some sections of it.
 # 1. Color naming 
-First of all, we have to select our colors. As far as in Android Studio 4.0.1 if you create a new project with the empty activity wizard, the colors file looks like this.
+First of all, we have to select our colors. As far as in Android Studio 4.0.1 if you create a new project with the empty activity wizard, the colors file looks like this.  We should change it.
 
 ```xml
 <resources>
@@ -18,8 +18,8 @@ You can find how to name colors [here](), use the [Material colors guide](), use
 <resources>
   <color name="brandPink">#880033</color>
   <color name="brandPinkDark">#66003c</color>
-  <color name="brandGreen">#009933</color>
-  <color name="brandGreenDark">#007700</color>
+  <color name="brandGreen">#00CCAA</color>
+  <color name="brandGreenDark">#02A287</color>
   <color name="brandWhite">#DCDCDC</color>
   <color name="brandBlack">#090909</color>
 </resources>
