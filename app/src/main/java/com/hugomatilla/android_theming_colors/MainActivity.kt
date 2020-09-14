@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         text = "Dark Mode Toggle"
         layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
       }
-    val rootView = (findViewById<View>(id.content) as ViewGroup).getChildAt(0) as ViewGroup
+    val rootView = findViewById<View>(id.content) as ViewGroup
     rootView.addView(darkButton)
 
     darkButton.setOnClickListener {
