@@ -1,0 +1,11 @@
+<resources>
+  <!-- Base application theme. -->
+  <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight">
+    <item name="colorPrimary">#ff3399</item>
+    <item name="colorPrimaryDark">#993399</item>
+    <item name="colorPrimaryVariant">#993399</item>
+    <item name="colorSecondary">#003300</item>
+    <item name="colorSecondaryVariant">#113311</item>
+  </style>
+
+</resources>

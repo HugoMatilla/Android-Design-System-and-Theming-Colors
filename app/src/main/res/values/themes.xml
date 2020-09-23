@@ -8,4 +8,12 @@
     <item name="colorSecondaryVariant">@color/brandGreenDark</item>
   </style>
 
+  <style name="ThemeOverlay.MyApp.Alternative" parent="">
+    <item name="colorPrimary">@color/brandVioletPremium</item>
+    <item name="colorPrimaryDark">@color/brandVioletPremiumDark</item>
+    <item name="colorPrimaryVariant">@color/brandVioletPremiumDark</item>
+    <item name="colorSecondary">@color/brandPinkPremium</item>
+    <item name="colorSecondaryVariant">@color/brandPinkPremiumDark</item>
+    <item name="colorSurface">@color/whiteDark</item>
+  </style>
 </resources>

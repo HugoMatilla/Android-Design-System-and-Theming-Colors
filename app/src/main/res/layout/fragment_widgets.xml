@@ -1,17 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
+  android:layout_height="wrap_content"
   tools:context=".MainActivity">
 
-  <TextView
-    android:layout_width="wrap_content"
+  <LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Widgets"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:layout_margin="8dp"
+    android:orientation="vertical">
+
+    <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Contained Button" />
+
+    <Button
+      style="@style/Widget.MaterialComponents.Button.TextButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Text Button" />
+
+    <Button
+      style="?materialButtonOutlinedStyle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Outlined Button" />
+
+
+    <com.google.android.material.chip.ChipGroup
+      android:id="@+id/chip_group"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:chipSpacing="4dp">
+
+      <com.google.android.material.chip.Chip
+        android:id="@+id/chip_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chip Action" />
+
+      <com.google.android.material.chip.Chip
+        android:id="@+id/chip_filter"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Chip Filter" />
+
+      <com.google.android.material.chip.Chip
+        android:id="@+id/chip_choice"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Chip Selected" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <RadioGroup
+      android:id="@+id/radio_group"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:orientation="horizontal">
+
+      <RadioButton
+        android:id="@+id/radio_button_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Radio" />
+
+      <RadioButton
+        android:id="@+id/radio_button_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buttons" />
+
+    </RadioGroup>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="8dp"
+      android:text="EXTENDED FAB"
+      app:icon="@drawable/ic_baseline_widgets_24dp" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="8dp"
+      android:src="@drawable/ic_baseline_palette_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="8dp"
+      android:src="@drawable/ic_child_care_24dp"
+      app:fabSize="mini" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:checked="true" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="8dp">
+
+      <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="OutlinedBox Hint" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+      style="?attr/textInputStyle"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="8dp">
+
+      <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Input Style Hint" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <CheckBox
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="8dp"
+      android:checked="true"
+      android:text="Check box" />
+
+  </LinearLayout>
+</ScrollView>

@@ -1,13 +1,10 @@
 package com.hugomatilla.android_theming_colors
 
-import android.R.id
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.Button
-import android.widget.LinearLayout.LayoutParams
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
@@ -15,7 +12,9 @@ import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.appcompat.app.AppCompatDelegate.getDefaultNightMode
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+import com.hugomatilla.android_theming_colors.R.id
 import kotlinx.android.synthetic.main.activity_main.bottomNavigation
+import kotlinx.android.synthetic.main.activity_main.fragment_container
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
     setupFragments()
     setupBottomNavigation()
-    addDarkModeButton()
+//    addDarkModeButton()
   }
 
   private fun addDarkModeButton() {
@@ -38,8 +37,7 @@ class MainActivity : AppCompatActivity() {
         text = "Dark Mode Toggle"
         layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
       }
-    val rootView = findViewById<View>(id.content) as ViewGroup
-    rootView.addView(darkButton)
+    fragment_container.addView(darkButton)
 
     darkButton.setOnClickListener {
       val goDark = getDefaultNightMode() != MODE_NIGHT_YES
@@ -65,19 +63,39 @@ class MainActivity : AppCompatActivity() {
 
   private fun setupBottomNavigation() {
     bottomNavigation.setOnNavigationItemSelectedListener {
-      when (it.itemId) {
-        R.id.simple -> simpleFragment.show()
-        R.id.palette -> paletteFragment.show()
-        R.id.widgets -> widgetsFragment.show()
-        R.id.overlay -> overlayFragment.show()
-      }
+      showFragmentByMenuItemId(it.itemId)
       true
+    }
+  }
+
+  private fun showFragmentByMenuItemId(itemId: Int) {
+    when (itemId) {
+      id.simple -> simpleFragment.show()
+      id.palette -> paletteFragment.show()
+      id.widgets -> widgetsFragment.show()
+      id.overlay -> overlayFragment.show()
     }
   }
 
   private fun Fragment.show() {
     val fragment = this
     supportFragmentManager.commit { replace(R.id.fragment_container, fragment, null) }
+  }
+
+  override fun onSaveInstanceState(savedInstanceState: Bundle) {
+    super.onSaveInstanceState(savedInstanceState)
+    savedInstanceState.putInt(LAST_SELECTED_ITEM, bottomNavigation.selectedItemId)
+  }
+
+  override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+    super.onRestoreInstanceState(savedInstanceState)
+    val itemId = savedInstanceState.getInt(LAST_SELECTED_ITEM, R.id.simple)
+    showFragmentByMenuItemId(itemId)
+    bottomNavigation.selectedItemId = itemId
+  }
+
+  companion object {
+    private const val LAST_SELECTED_ITEM = "LAST_SELECTED_ITEM"
   }
 
 }

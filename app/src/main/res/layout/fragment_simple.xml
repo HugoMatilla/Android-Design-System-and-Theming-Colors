@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:layout_margin="16dp"
+  android:orientation="vertical"
   tools:context=".MainActivity">
 
   <LinearLayout
@@ -129,19 +130,32 @@
     android:id="@+id/fab"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:layout_marginTop="24dp"
     android:gravity="center"
-    android:text="Ext FAB"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/secondaryLayout" />
+    android:text="  Extended Fab" />
 
   <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:layout_marginTop="24dp"
+    android:text="Button" />
+
+
+  <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="24dp"
+    android:backgroundTint="?attr/colorSecondary"
     android:text="Button"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/fab" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:textColor="?attr/colorPrimary" />
+
+
+  <Button
+    style="@style/Widget.MyApp.Button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Button Style" />
+</LinearLayout>

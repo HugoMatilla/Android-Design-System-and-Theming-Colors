@@ -4,4 +4,10 @@
   <color name="brandPinkDark">#66003c</color>
   <color name="brandGreen">#00CCAA</color>
   <color name="brandGreenDark">#02A287</color>
+
+  <color name="brandVioletPremium">#5e3188</color>
+  <color name="brandVioletPremiumDark">#4d1b7b</color>
+  <color name="brandPinkPremium">#ef4f91</color>
+  <color name="brandPinkPremiumDark">#8f2f57</color>
+  <color name="whiteDark">#cccccc</color>
 </resources>
