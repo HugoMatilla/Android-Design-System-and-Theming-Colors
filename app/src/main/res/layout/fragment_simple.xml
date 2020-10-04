@@ -143,19 +143,4 @@
     android:text="Button" />
 
 
-  <Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginTop="24dp"
-    android:backgroundTint="?attr/colorSecondary"
-    android:text="Button"
-    android:textColor="?attr/colorPrimary" />
-
-
-  <Button
-    style="@style/Widget.MyApp.Button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Button Style" />
 </LinearLayout>

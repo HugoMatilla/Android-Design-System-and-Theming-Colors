@@ -10,4 +10,5 @@
   <color name="brandPinkPremium">#ef4f91</color>
   <color name="brandPinkPremiumDark">#8f2f57</color>
   <color name="whiteDark">#cccccc</color>
+  <color name="white">#ffffff</color>
 </resources>

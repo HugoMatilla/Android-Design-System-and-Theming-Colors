@@ -16,4 +16,14 @@
     <item name="colorSecondaryVariant">@color/brandPinkPremiumDark</item>
     <item name="colorSurface">@color/whiteDark</item>
   </style>
+
+  <style name="ThemeOverlay.MyApp.Inverse" parent="">
+    <item name="colorOnPrimary">@color/brandPink</item>
+    <item name="colorOnPrimarySurface">@color/white</item>
+    <item name="colorOnSurface">@color/white</item>
+    <item name="colorSurface">@color/brandPinkDark</item>
+    <item name="colorPrimary">@color/white</item>
+    <item name="colorPrimaryVariant">@color/whiteDark</item>d
+    <!--    <item name="android:textColor">@color/white</item>-->
+  </style>
 </resources>

@@ -21,9 +21,9 @@ First of all, we have to select our colors. As far as in Android Studio 4.0.1 if
 ```
 
 As it is recommended the colors should have literal names (describe the value not how it's used). 
-You can find how to name colors [here](https://proandroiddev.com/how-to-name-a-color-in-android-f267f2a16172), use the [Material colors guide](https://gist.github.com/HugoMatilla/fc24990505b9da2d081f7a7f87e3424e), use a Plugin like [this one](https://plugins.jetbrains.com/plugin/10422-name-that-color) or a mix of all of them.
+To help you with color naming you can use the [Material colors style](https://gist.github.com/HugoMatilla/fc24990505b9da2d081f7a7f87e3424e), use a tool like [name-that-color](https://chir.ag/projects/name-that-color/#D80E9E) or a Plugin like [this one](https://plugins.jetbrains.com/plugin/10422-name-that-color).
 
-I will use these names
+In this article I will use these names
 
 ```xml
 <resources>
@@ -36,7 +36,7 @@ I will use these names
 
 Now that we have our colors  we have to set them in our theme attributes.
 
-> You can learn about theme attributes in my previous post in the section [Theme attrs in less than 100 words.]
+> You can learn about theme attributes in my previous post in the section [Theme attibutesrs in less than 100 words.](https://github.com/HugoMatilla/Android-Design-System-and-Theming-Typography/blob/master/readme.md#theme-attributes-vs-view-attributes-in-less-than-100-words)
   
 
 # 2. Color theme attributes
@@ -45,7 +45,7 @@ An image is worth 1000 words.
 
 ![color_attributes](imgs/color_attributes.png)
 
-Here we can see the 12 most important attributes that the Material Design Library offer us.
+Here we can see the 12 most important color attributes that the Material Design Library offers us.
 
 ```
 colorPrimary
@@ -67,16 +67,19 @@ colorOnError
 
 ```
 
-As you can see the colors attributes are divided in some colors like `colorPrimary`, and in how should the foreground of that color be like `colorOnPrimary`.
+> When creating your Theme you don't need to change all of them. Start changing only the Primary and Secondary and their cousins (`variant` and `on`). The rest  of the attributes will, most of the time, do the job.
+
+As you can see the color attributes are divided in some colors like `colorPrimary`, and in how should the foreground of that color be like `colorOnPrimary`.
 
 ![Buttons](imgs/buttons.png)
 
-This is very helpfull because we have now one place where we define our colors and also how the foreground of that color is, so we know that there wont be visibility problems, like if a dark colored button has dark colored text.
-There is a relation btween primary/varinat and/ on. If you change one check the others 
 
-> Between `main` ,`variant`  and `on`  colors  there is a link. Overriding one means you need to check the others 2.
+This is very helpful because we have now one place where we define our colors and also how the foreground of that color is, so we know that there won't be visibility problems, like if a dark colored button has dark colored text.
 
-# 3 Update your theme with your colors
+> There is an intrinsic relation between `primary`, `variant` and `on`. If you change one of them you should verify that all keep looking good between each other.
+
+
+# 3. Update your theme with your colors
 Now that we have our colors set lets apply them to our Theme.
 
 First of all and form Androdis Studio 4.0.1 the Empty Activity wizard creates  this style
@@ -95,7 +98,7 @@ First of all and form Androdis Studio 4.0.1 the Empty Activity wizard creates  t
 
 Lets clean this up.
 
-First, make the parent to inherit from a MD theme aike `Theme.MaterialComponents.DayNight.NoActionBar` 
+First, make the parent to inherit from a Material Design theme. I will use `Theme.MaterialComponents.DayNight.NoActionBar` 
 > For that first add the libray `com.google.android.material:material:<latest_version>` in your gradle module file.
 
 Second, change the name to reflect that it is a theme. 
@@ -111,10 +114,13 @@ Second, change the name to reflect that it is a theme.
     
 ```
 
-Finally and most important move it to a `themes.xml` file.
 
-## Note about naming and files: 
-### Naming
+Finally move it to a `themes.xml` file.
+
+## 4.1 Note about naming and files: 
+### 4.1.1 Naming Styles
+Because there is no xml tag `<theme>` we use the `<style>` tag for themes and styles indistincly. Therefore to not getting conufsed with our own design system we need a convention to name them.
+
 For Themes and Widget Styles the convention is:
 
  * Use `Theme.YourAppsName.ThemeVariantName` for the themes 
@@ -122,17 +128,34 @@ For Themes and Widget Styles the convention is:
  * Themes will be set for a `theme` in a xml.
  * Widgets will be set for a `stlyle` in a xml.
  
- With this, it is easy to see that we are not using themes when we should use styles, and viceversa.
 
-You won't need to change all of them. Start changing only the Primary and Secondary and their cousins (`variant` and `on`). The rest  of the attributes will, most of the time, do the job.
+```xml
+// We are using a Theme for a Style. (Bad)
+<Button
+  style="@style/Theme.MyApp.Button" 
+/> 
+// We are using a Style for a Theme. (Also Bad)
+<Button
+  android:theme="@style/Widget.MyApp.Button.TextButton" 
+/>
+// We should not do that, and proper naming will help us to not do it.
+// We use a Widget definition to define the widget style. And even if we normally wont set a theme in a widget, we set in this code the theme style with a Theme. (Good)
+<Button
+  style="@style/Widget.MyApp.Button.TextButton"
+  android:theme="@style/Theme.MyApp.Button"
+/>
 
-### Files
+```
+
+With this, it is easy to see that we are not using themes when we should use styles, and vice versa.
+
+### 4.1.2 Naming Files
 * Add your themes in `themes.xml` file
 * Add your widget styles in `styles.xml` file
 
 Now if we run our app we can see how the colors are applied as we defined in the theme.
 
-# 4 Widgets and default attributes.
+# 4. Widgets and default attributes.
 One of the main advantages of using theming is how they work with the widgets.
 
 You might be tempted to create a style for the buttons with your `attr/colorPrimary` and `attr/colorOnPrimary`. You don't need that.
@@ -150,7 +173,7 @@ You might be tempted to create a style for the buttons with your `attr/colorPrim
 ```
 
 Android Systyem and MD will do all for you. This will be shown equally.
-The button content colot is set to primary and onPrimary for the text, so you don't have to do nothnig. 
+The button content color is set to primary and onPrimary for the text, so you don't have to do nothnig. 
 ```xml
   <Button
     android:layout_width="wrap_content"
@@ -159,21 +182,43 @@ The button content colot is set to primary and onPrimary for the text, so you do
 ```
 
 
-MD website has been recently updated with all the information about theme attributes so now is very easy to understand and modify how them work.
+MD website has all the information about theme attributes so is very easy to understand and modify how they work.
 
 Here is an extract of the Container Attributes of the [Contained button Component Docs](https://material.io/develop/android/components/buttons#contained-button)
+
+
 ![Button theme attributes](imgs/md_attributes.png)
 
-The Material Design Library specify differnt styles for th differnt components. For example The button has 3 differnt styles.
-Contained, Text, Outlined. These styles use the theme attributes to define the look and feel. 
-We can just change our theme attributes and not change the styles to accpmplish a roubst Design System in our app.
- 
+The Material Design Library specifies different styles for the different components. 
 
-There are couple of places where this can be more complicated that it looks like, but for most places you won't have problems.
+For example, the `Button` widget has 3 different styles.
+**Contained**, **Text** and **Outlined**. These styles use theme attributes to define their look and feel. 
+We can just change our theme attributes and set the specific Material Design style to accomplish a robust Design System in our app.
 
-> Check the conpanion app to see how some widgets are painted just defining a theme and letting the Android and the default values to do the rest.
+![Buttons Styles](imgs/button-styles.png)
 
-# 5 DarkMode
+Check how the Contained Buttons does not need any specification to be painted with the theme colors, and how the others just need to set the style to a Material Design Library Style.
+
+> Note how the Outlined Button Style is set by a theme attribute called `materialButtonOutlinedStyle`. There are more theme attributes defined in the MD library, you can find more info in the MD Documentation.  
+
+Android engineers recommend to use the Material Design Components. If you want to read more about it, check this post from Nick Butcher: [We Recommend Material Design Components](https://medium.com/androiddevelopers/we-recommend-material-design-components-81e6d165c2dd)
+
+There are a couple of places where this can be more complicated than it looks, but most of the time you won't have problems.
+
+> Check the companion app to see how some widgets are painted just defining a theme and letting the Android and the default values to do the rest.
+
+<img src="imgs/widgtes.jpg" alt="Widgets" width="350"/>
+
+# 5. Overlays
+It might happend that your app has different versions like Free and Premium and you want to have different looks between both. Other scenario is that your application uses differnet colors schemes in differnt screens.
+For these and other scenarios you can have different themes. Lets see how to apply theme.
+
+
+
+
+
+
+# 5. DarkMode
 To test the DarkMode we can simple test how it look like as a far as know.
 
 Copy Paste this and check it out
@@ -183,14 +228,14 @@ Copy Paste this and check it out
 
 It does not look good because as we can
 
-We need just to create another theme inherinitn most of the Base theme and change our primary...
+We need just to create another theme inherinit most of the Base theme and change our primary...
 
 
-# 6 What if 12 attributes are not enough
+# 6. What if 12 attributes are not enough
 One of the powers of theming is the avillity to change the full UI styles easily. You can have 2 themes for for example normal and premium users.
-The primary color is different for both, just creating a  new theme with the differnt primary color will be enough and and just chaning the theme for each ot the user types will be sufficient.
+The primary color is different for both, just creating a  new theme with the differnt primary color will be enough and and just chaning the theme for each of the user types will be sufficient.
 
-But imagine that our design team does not want that the FAB buttons color change. In that case and becasue FAB buttons use color primary attribute to tint it we need a solution.
+But imagine that our design team does not want that the FAB button color change. In that case and becasue FAB buttons use color secondary attribute to tint it we need a solution.
 
 In that case is very easy, we can define a custom theme attribute that will be used to tint the fab buttons, instead XXX attribute.
 
@@ -230,11 +275,18 @@ Becasue we ar epointing to the theme attribute for future changes or in app them
 
 ## Theme overlays
 Already mentioned in my prevous post, but because is so powerful lets explain it again.
+
+The problem with theme overlays is that it will not work perfectly unless the whole fragment is an overlay surface colors will not change on child view and need to be changed manually.
+I needed to add `<item name="android:textColor">@color/whiteDark</item>` to let the text changed. Using color onPrimarySurface didn't work in a view
+But it worked in a fragment. (Check this)
+
 **What are deafault styles?**
 >When applying theme overlays in XML, there are two options to consider:
 android:theme: Works with all widgets, doesn’t work in default styles
 app:materialThemeOverlay: Only works with MDC widgets, works in default styles`
 
+
+// REST
 
 # MDC Widgtes : Other post
 ## Custom Widgets
@@ -246,4 +298,6 @@ app:materialThemeOverlay: Only works with MDC widgets, works in default styles`
 # Things that does not work right 
 Text color in activities with Actionbar is black, and not `colorOnPrimary`. Prefer to use Toolbar
 `colorPrimaryDark` is neccesary to tint the status bar
+
+
 
