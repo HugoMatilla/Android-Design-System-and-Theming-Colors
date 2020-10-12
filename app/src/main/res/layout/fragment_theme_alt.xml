@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
@@ -12,7 +13,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="24dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
     <TextView
       android:layout_width="wrap_content"
@@ -68,7 +72,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="24dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/primaryLayout">
 
     <TextView
       android:layout_width="wrap_content"
@@ -119,6 +126,14 @@
 
   </LinearLayout>
 
+  <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    android:id="@+id/fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="24dp"
+    android:gravity="center"
+    android:text="  Extended Fab" />
 
   <Button
     android:layout_width="wrap_content"
@@ -127,11 +142,14 @@
     android:layout_marginTop="24dp"
     android:text="Button" />
 
-  <include
-    layout="@layout/layout_overlay"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
-
-
+  <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    android:id="@+id/fabCustom"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="24dp"
+    android:backgroundTint="?attr/fabBackgroundColor"
+    android:gravity="center"
+    android:text="  Custom Attribute" />
 
 </LinearLayout>

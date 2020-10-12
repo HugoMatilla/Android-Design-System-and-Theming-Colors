@@ -18,4 +18,9 @@
     android:id="@+id/widgets"
     android:icon="@drawable/ic_baseline_widgets_24dp"
     android:title="WIDGETS" />
+
+  <item
+    android:id="@+id/alternative"
+    android:icon="@drawable/ic_baseline_compare_arrows_24"
+    android:title="ALT.THEME" />
 </menu>

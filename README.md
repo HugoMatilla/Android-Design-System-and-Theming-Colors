@@ -117,8 +117,8 @@ Second, change the name to reflect that it is a theme.
 
 Finally move it to a `themes.xml` file.
 
-## 4.1 Note about naming and files: 
-### 4.1.1 Naming Styles
+## 3.1 Note about naming and files: 
+### 3.1.1 Naming Styles
 Because there is no xml tag `<theme>` we use the `<style>` tag for themes and styles indistincly. Therefore to not getting conufsed with our own design system we need a convention to name them.
 
 For Themes and Widget Styles the convention is:
@@ -149,7 +149,7 @@ For Themes and Widget Styles the convention is:
 
 With this, it is easy to see that we are not using themes when we should use styles, and vice versa.
 
-### 4.1.2 Naming Files
+### 3.1.2 Naming Files
 * Add your themes in `themes.xml` file
 * Add your widget styles in `styles.xml` file
 
@@ -209,30 +209,76 @@ There are a couple of places where this can be more complicated than it looks, b
 
 <img src="imgs/widgtes.jpg" alt="Widgets" width="350"/>
 
-# 5. Overlays
-It might happend that your app has different versions like Free and Premium and you want to have different looks between both. Other scenario is that your application uses differnet colors schemes in differnt screens.
-For these and other scenarios you can have different themes. Lets see how to apply theme.
+# 5. More Themes
+It might happen that your app has different versions like Free and Premium and you want to have different looks between both. 
+Another scenario is that your application uses different colors schemes in diferent screens.
 
+In these cases you can have more than one theme, because your application has the theme set up in the manifest to select a different one in an activity or fragment you will need to do it programmaticaly.
 
-
-
-
-
-# 5. DarkMode
-To test the DarkMode we can simple test how it look like as a far as know.
-
-Copy Paste this and check it out
+For an activity is as easy as calling `setTheme(R.style.yourTheme) before calling `setContentView()`
 ```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setTheme(R.style.Theme_MyApp_Alternative) 
+    setContentView(R.layout.activity_main)
+}
+```    
 
+For a fragment calling `setTheme` should be done before, and it would look like this.
+```kotlin
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    val contextThemeWrapper = ContextThemeWrapper(activity, style.Theme_MyApp_Alternative)
+    val localInflater = inflater.cloneInContext(contextThemeWrapper)
+    return localInflater.inflate(R.layout.fragment_simple, container, false)
+  }
 ```
 
-It does not look good because as we can
+> If you need to change your theme after views are instantiated you will need to call `recreate()` to inflate the views again with the new theme.
 
-We need just to create another theme inherinit most of the Base theme and change our primary...
 
+[setTheme docs](https://developer.android.com/reference/android/content/Context.html#setTheme(int))
+
+# 5.1. Theme Overlays
+There are times that you need to change the theme but only in a fraction of you view hierarchy. For that there is the Theme Overlay Technic.
+This thechnic was already covered in my previous post.
+
+> In any of your views, you can add the android:theme attribute and set it to a specific theme. The view and all its children will use the new theme.
+> ThemeOverlays inherit from an empty parent, should define as few attributes as possible, and its name should start with ThemeOverlay, thus it's clear its purpose.
+
+```xml
+// ThemeOverlay Style
+<style name="ThemeOverlay.MyApp.Inverse" parent="">
+  <item name="colorOnPrimary">@color/brandPink</item>
+  <item name="colorOnPrimarySurface">@color/white</item>
+  <item name="colorOnSurface">@color/white</item>
+  <item name="colorSurface">@color/brandPinkDark</item>
+  <item name="colorPrimary">@color/white</item>
+  <item name="colorPrimaryVariant">@color/whiteDark</item>
+  <item name="android:textColor">@color/white</item>
+</style>
+
+// Layout
+<LinearLayout 
+  ...
+  android:theme="@style/ThemeOverlay.MyApp.Inverse">
+  <LinearLayout
+    ...
+    android:background="?attr/colorSurface">
+    
+```    
+
+As you can see in the sample app I had to change the background in the layout `android:background="?attr/colorSurface"` so it gets the proper surface color as background.
+Also I needed to change the text color in the style. It could also been done directly in the layout.
+Depending on you necessities you will have to tweeck a little some attributes, but most of them will work properly.
+
+
+### What are default styles? 
+>When applying theme overlays in XML, there are two options to consider:
+android:theme: Works with all widgets, doesn’t work in default styles
+app:materialThemeOverlay: Only works with MDC widgets, works in default styles`
 
 # 6. What if 12 attributes are not enough
-One of the powers of theming is the avillity to change the full UI styles easily. You can have 2 themes for for example normal and premium users.
+One of the powers of theming is the avility to change the full UI styles easily. You can have 2 themes for for example normal and premium users.
 The primary color is different for both, just creating a  new theme with the differnt primary color will be enough and and just chaning the theme for each of the user types will be sufficient.
 
 But imagine that our design team does not want that the FAB button color change. In that case and becasue FAB buttons use color secondary attribute to tint it we need a solution.
@@ -241,19 +287,27 @@ In that case is very easy, we can define a custom theme attribute that will be u
 
 ```xml
 <!-- In res/values/attrs.xml -->
-<attr name="fabColor" format="color" />
+<attr name="fabBackgroundColor" format="color" />
 
 <!-- In res/values/themes.xml -->
-<style name="Theme.App" parent="Theme.MaterialComponents.*">
-    <item name="fabColor">?:attr/secondary</item>
+<style name="Theme.MyApp.Default" parent="Theme.MyApp">
+    ...
+    <item name="fabBackgroundColor">?attr/colorSecondary</item>
 </style>
 
-<style name="Theme.App.Premium" parent="Theme.MaterialComponents.*">
-    <item name="fabColor">@color/orangePremium</item>
+<style name="Theme.MyApp.Alternative" parent="Theme.MyApp">
+    ...
+    <item name="fabBackgroundColor">@color/orangePremium</item>
 </style>
+
+<!-- In the layout -->
+<com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+  ...
+  android:backgroundTint="?attr/fabBackgroundColor"/>
+
 ``` 
 
-> Check it in the companion app
+> Check it in the companion app in the **Alt.Theme** tab []()
 
 # Extra points
 ## Colors with alpha
@@ -273,18 +327,6 @@ Instead use a color sate list that reference the primary colors like:
 
 Becasue we ar epointing to the theme attribute for future changes or in app theme change normal to premium we wont need to change nothing. 
 
-## Theme overlays
-Already mentioned in my prevous post, but because is so powerful lets explain it again.
-
-The problem with theme overlays is that it will not work perfectly unless the whole fragment is an overlay surface colors will not change on child view and need to be changed manually.
-I needed to add `<item name="android:textColor">@color/whiteDark</item>` to let the text changed. Using color onPrimarySurface didn't work in a view
-But it worked in a fragment. (Check this)
-
-**What are deafault styles?**
->When applying theme overlays in XML, there are two options to consider:
-android:theme: Works with all widgets, doesn’t work in default styles
-app:materialThemeOverlay: Only works with MDC widgets, works in default styles`
-
 
 // REST
 
@@ -300,4 +342,16 @@ Text color in activities with Actionbar is black, and not `colorOnPrimary`. Pref
 `colorPrimaryDark` is neccesary to tint the status bar
 
 
+
+# 5. DarkMode
+To test the DarkMode we can simple test how it look like as a far as know.
+
+Copy Paste this and check it out
+```kotlin
+
+```
+
+It does not look good because as we can
+
+We need just to create another theme inherinit most of the Base theme and change our primary...
 

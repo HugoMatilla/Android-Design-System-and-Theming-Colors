@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:layout_margin="16dp"
   android:orientation="vertical"
+  android:theme="@style/ThemeOverlay.MyApp.Inverse"
   tools:context=".MainActivity">
 
+
   <LinearLayout
-    android:id="@+id/primaryLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+      android:background="?attr/colorSurface"
+  android:orientation="vertical">
+
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:text="Theme Overlay"
+    android:textSize="24sp" />
+
+  <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="24dp"
@@ -64,7 +78,6 @@
   </LinearLayout>
 
   <LinearLayout
-    android:id="@+id/secondaryLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="24dp"
@@ -119,19 +132,13 @@
 
   </LinearLayout>
 
-
   <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_marginTop="24dp"
-    android:text="Button" />
-
-  <include
-    layout="@layout/layout_overlay"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
-
-
-
-</LinearLayout>
+    android:text="Button"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/fab" />
+</LinearLayout></LinearLayout>

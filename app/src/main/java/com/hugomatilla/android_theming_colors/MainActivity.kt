@@ -22,13 +22,14 @@ class MainActivity : AppCompatActivity() {
   private lateinit var overlayFragment: OverlayFragment
   private lateinit var widgetsFragment: WidgetsFragment
   private lateinit var paletteFragment: PaletteFragment
+  private lateinit var alternativeThemeFragment: ThemeAlternativeFragment
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+//    setTheme(R.style.Theme_MyApp_Alternative) // uncomment to change the activity's theme
     setContentView(R.layout.activity_main)
     setupFragments()
     setupBottomNavigation()
-//    addDarkModeButton()
   }
 
   private fun addDarkModeButton() {
@@ -50,8 +51,10 @@ class MainActivity : AppCompatActivity() {
     overlayFragment = OverlayFragment()
     widgetsFragment = WidgetsFragment()
     paletteFragment = PaletteFragment()
+    alternativeThemeFragment = ThemeAlternativeFragment()
 
     supportFragmentManager.commit {
+      add(R.id.fragment_container, alternativeThemeFragment, null)
       add(R.id.fragment_container, overlayFragment, null)
       add(R.id.fragment_container, widgetsFragment, null)
       add(R.id.fragment_container, paletteFragment, null)
@@ -74,6 +77,7 @@ class MainActivity : AppCompatActivity() {
       id.palette -> paletteFragment.show()
       id.widgets -> widgetsFragment.show()
       id.overlay -> overlayFragment.show()
+      id.alternative -> alternativeThemeFragment.show()
     }
   }
 

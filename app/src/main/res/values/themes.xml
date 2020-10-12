@@ -1,20 +1,16 @@
 <resources>
   <!-- Base application theme. -->
   <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight">
+    <!--    Here will be some attributes definitions for all themes that are not overrides. Probably shapes and typefaces -->
+  </style>
+
+  <style name="Theme.MyApp.Default" parent="Theme.MyApp">
     <item name="colorPrimary">@color/brandPink</item>
     <item name="colorPrimaryDark">@color/brandPinkDark</item>
     <item name="colorPrimaryVariant">@color/brandPinkDark</item>
     <item name="colorSecondary">@color/brandGreen</item>
     <item name="colorSecondaryVariant">@color/brandGreenDark</item>
-  </style>
-
-  <style name="ThemeOverlay.MyApp.Alternative" parent="">
-    <item name="colorPrimary">@color/brandVioletPremium</item>
-    <item name="colorPrimaryDark">@color/brandVioletPremiumDark</item>
-    <item name="colorPrimaryVariant">@color/brandVioletPremiumDark</item>
-    <item name="colorSecondary">@color/brandPinkPremium</item>
-    <item name="colorSecondaryVariant">@color/brandPinkPremiumDark</item>
-    <item name="colorSurface">@color/whiteDark</item>
+    <item name="fabBackgroundColor">?attr/colorSecondary</item>
   </style>
 
   <style name="ThemeOverlay.MyApp.Inverse" parent="">
@@ -24,6 +20,16 @@
     <item name="colorSurface">@color/brandPinkDark</item>
     <item name="colorPrimary">@color/white</item>
     <item name="colorPrimaryVariant">@color/whiteDark</item>d
-    <!--    <item name="android:textColor">@color/white</item>-->
+    <item name="android:textColor">@color/white</item>
   </style>
+
+  <style name="Theme.MyApp.Alternative" parent="Theme.MyApp">
+    <item name="colorPrimary">@color/brandVioletPremium</item>
+    <item name="colorPrimaryDark">@color/brandVioletPremiumDark</item>
+    <item name="colorPrimaryVariant">@color/brandVioletPremiumDark</item>
+    <item name="colorSecondary">@color/brandPinkPremium</item>
+    <item name="colorSecondaryVariant">@color/brandPinkPremiumDark</item>
+    <item name="fabBackgroundColor">@color/orangePremium</item>
+  </style>
+
 </resources>
