@@ -1,137 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:layout_margin="16dp"
-  android:orientation="vertical"
-  tools:context=".MainActivity">
+  android:layout_height="match_parent">
 
   <LinearLayout
-    android:id="@+id/primaryLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="24dp"
-    android:orientation="horizontal">
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <TextView
-      android:layout_width="wrap_content"
+    <include
+      layout="@layout/layout_overlay"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
+
+    <LinearLayout
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_margin="8dp"
-      android:text="Primary"
-      android:textSize="18sp" />
+      android:layout_marginTop="8dp"
+      android:orientation="vertical"
+      android:theme="@style/ThemeOverlay.MyApp.Inverse">
 
-    <View
-      android:layout_width="24dp"
-      android:layout_height="match_parent"
-      android:layout_margin="8dp"
-      android:background="?attr/colorPrimary" />
+      <include
+        layout="@layout/layout_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </LinearLayout>
 
-    <TextView
-      android:layout_width="wrap_content"
+    <LinearLayout
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_margin="8dp"
-      android:text="Variant"
-      android:textSize="18sp" />
+      android:layout_marginTop="8dp"
+      android:orientation="vertical"
+      android:theme="@style/ThemeOverlay.MaterialComponents.Dark">
 
-    <View
-      android:layout_width="24dp"
-      android:layout_height="match_parent"
-      android:layout_margin="8dp"
-      android:background="?attr/colorPrimaryVariant" />
-
-    <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="8dp"
-      android:text="On"
-      android:textSize="18sp" />
-
-    <FrameLayout
-      android:layout_width="24dp"
-      android:layout_height="match_parent"
-      android:layout_margin="8dp"
-      android:background="@android:color/darker_gray">
-
-      <View
-        android:layout_width="20dp"
-        android:layout_height="match_parent"
-        android:layout_margin="2dp"
-        android:background="?attr/colorOnPrimary" />
-    </FrameLayout>
-
+      <include
+        layout="@layout/layout_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </LinearLayout>
 
   </LinearLayout>
-
-  <LinearLayout
-    android:id="@+id/secondaryLayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="24dp"
-    android:orientation="horizontal">
-
-    <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="8dp"
-      android:text="Secondary"
-      android:textSize="18sp" />
-
-    <View
-      android:layout_width="24dp"
-      android:layout_height="match_parent"
-      android:layout_margin="8dp"
-      android:background="?attr/colorSecondary" />
-
-    <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="8dp"
-      android:text="Variant"
-      android:textSize="18sp" />
-
-    <View
-      android:layout_width="24dp"
-      android:layout_height="match_parent"
-      android:layout_margin="8dp"
-      android:background="?attr/colorSecondaryVariant" />
-
-    <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="8dp"
-      android:text="On"
-      android:textSize="18sp" />
-
-
-    <FrameLayout
-      android:layout_width="24dp"
-      android:layout_height="match_parent"
-      android:layout_margin="8dp"
-      android:background="@android:color/darker_gray">
-
-      <View
-        android:layout_width="20dp"
-        android:layout_height="match_parent"
-        android:layout_margin="2dp"
-        android:background="?attr/colorOnSecondary" />
-    </FrameLayout>
-
-  </LinearLayout>
-
-
-  <Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginTop="24dp"
-    android:text="Button" />
-
-  <include
-    layout="@layout/layout_overlay"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
-
-
-
-</LinearLayout>
+</ScrollView>

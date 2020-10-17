@@ -1,11 +1,16 @@
 <resources>
-  <!-- Base application theme. -->
-  <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight">
-    <item name="colorPrimary">#ff3399</item>
-    <item name="colorPrimaryDark">#993399</item>
-    <item name="colorPrimaryVariant">#993399</item>
-    <item name="colorSecondary">#003300</item>
-    <item name="colorSecondaryVariant">#113311</item>
+
+  <!-- Optional: Create a Theme with .Dark suffix and then set the Default theme to inherit form it with out any modification.-->
+  <!--  This is nice to see easily that it is the DarkTheme. -->
+  <style name="Theme.MyApp.Dark" parent="Theme.MyApp">
+    <item name="colorPrimary">@color/md_pink_200</item>
+    <item name="colorPrimaryDark">@color/md_pink_300</item>
+    <item name="colorPrimaryVariant">@color/md_pink_300</item>
+    <item name="colorSecondary">@color/md_green_200</item>
+    <item name="colorSecondaryVariant">@color/md_green_400</item>
+    <item name="fabBackgroundColor">?attr/colorSecondary</item>
   </style>
+
+  <style name="Theme.MyApp.Default" parent="Theme.MyApp.Dark" />
 
 </resources>

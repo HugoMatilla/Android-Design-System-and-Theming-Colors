@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.hugomatilla.android_theming_colors.R.id
 import kotlinx.android.synthetic.main.activity_main.bottomNavigation
-import kotlinx.android.synthetic.main.activity_main.fragment_container
+import kotlinx.android.synthetic.main.activity_main.fragmentContainer
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
     setupFragments()
     setupBottomNavigation()
+    addDarkModeButton()  // uncomment to see the darkMode button
   }
 
   private fun addDarkModeButton() {
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         text = "Dark Mode Toggle"
         layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
       }
-    fragment_container.addView(darkButton)
+    fragmentContainer.addView(darkButton)
 
     darkButton.setOnClickListener {
       val goDark = getDefaultNightMode() != MODE_NIGHT_YES
@@ -54,11 +55,11 @@ class MainActivity : AppCompatActivity() {
     alternativeThemeFragment = ThemeAlternativeFragment()
 
     supportFragmentManager.commit {
-      add(R.id.fragment_container, alternativeThemeFragment, null)
-      add(R.id.fragment_container, overlayFragment, null)
-      add(R.id.fragment_container, widgetsFragment, null)
-      add(R.id.fragment_container, paletteFragment, null)
-      add(R.id.fragment_container, simpleFragment, null)
+      add(R.id.fragmentContainer, alternativeThemeFragment, null)
+      add(R.id.fragmentContainer, overlayFragment, null)
+      add(R.id.fragmentContainer, widgetsFragment, null)
+      add(R.id.fragmentContainer, paletteFragment, null)
+      add(R.id.fragmentContainer, simpleFragment, null)
     }
 
     simpleFragment.show()
@@ -83,7 +84,7 @@ class MainActivity : AppCompatActivity() {
 
   private fun Fragment.show() {
     val fragment = this
-    supportFragmentManager.commit { replace(R.id.fragment_container, fragment, null) }
+    supportFragmentManager.commit { replace(R.id.fragmentContainer, fragment, null) }
   }
 
   override fun onSaveInstanceState(savedInstanceState: Bundle) {
@@ -101,5 +102,4 @@ class MainActivity : AppCompatActivity() {
   companion object {
     private const val LAST_SELECTED_ITEM = "LAST_SELECTED_ITEM"
   }
-
 }

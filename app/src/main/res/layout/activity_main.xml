@@ -7,7 +7,7 @@
   tools:context=".MainActivity">
 
   <FrameLayout
-    android:id="@+id/fragment_container"
+    android:id="@+id/fragmentContainer"
     android:layout_width="0dp"
     android:layout_height="0dp"
     app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
@@ -17,7 +17,7 @@
 
   <com.google.android.material.bottomnavigation.BottomNavigationView
     android:id="@+id/bottomNavigation"
-    style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+    style="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:layout_gravity="bottom"

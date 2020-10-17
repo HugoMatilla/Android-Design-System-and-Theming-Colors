@@ -13,7 +13,7 @@ class ThemeAlternativeFragment : Fragment() {
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
     val contextThemeWrapper = ContextThemeWrapper(activity, style.Theme_MyApp_Alternative)
     val localInflater = inflater.cloneInContext(contextThemeWrapper)
-    return localInflater.inflate(R.layout.fragment_theme_alt, container, false)
+    return localInflater.inflate(R.layout.fragment_simple, container, false)
   }
 
 }

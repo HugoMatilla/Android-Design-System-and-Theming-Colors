@@ -4,16 +4,9 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:background="?attr/colorSurface"
   android:orientation="vertical"
-  android:theme="@style/ThemeOverlay.MyApp.Inverse"
   tools:context=".MainActivity">
-
-
-  <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-      android:background="?attr/colorSurface"
-  android:orientation="vertical">
 
   <TextView
     android:layout_width="match_parent"
@@ -25,7 +18,7 @@
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="24dp"
+    android:layout_marginTop="8dp"
     android:orientation="horizontal">
 
     <TextView
@@ -80,7 +73,7 @@
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="24dp"
+    android:layout_marginTop="8dp"
     android:orientation="horizontal">
 
     <TextView
@@ -136,9 +129,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginTop="24dp"
+    android:layout_marginTop="8dp"
     android:text="Button"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toBottomOf="@id/fab" />
-</LinearLayout></LinearLayout>
+</LinearLayout>
