@@ -1,10 +1,20 @@
 <resources>
+  <!-- This is valid-->
+  <!--  <style name="Theme.MyApp.Default" parent="Theme.MyApp">-->
+  <!--    <item name="colorPrimary">@color/md_pink_200</item>-->
+  <!--    <item name="colorPrimaryVariant">@color/md_pink_300</item>-->
+  <!--    <item name="colorSecondary">@color/md_green_200</item>-->
+  <!--    <item name="colorSecondaryVariant">@color/md_green_400</item>-->
+  <!--    <item name="fabBackgroundColor">?attr/colorSecondary</item>-->
+  <!--  </style>-->
 
-  <!-- Optional: Create a Theme with .Dark suffix and then set the Default theme to inherit form it with out any modification.-->
+
+  <!--   Optional:-->
+  <!--   Create a Theme with .Dark suffix and then set the Default theme to inherit form it with out any modification.-->
   <!--  This is nice to see easily that it is the DarkTheme. -->
+
   <style name="Theme.MyApp.Dark" parent="Theme.MyApp">
     <item name="colorPrimary">@color/md_pink_200</item>
-    <item name="colorPrimaryDark">@color/md_pink_300</item>
     <item name="colorPrimaryVariant">@color/md_pink_300</item>
     <item name="colorSecondary">@color/md_green_200</item>
     <item name="colorSecondaryVariant">@color/md_green_400</item>

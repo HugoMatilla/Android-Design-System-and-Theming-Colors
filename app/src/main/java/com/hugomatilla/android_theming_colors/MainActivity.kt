@@ -1,10 +1,8 @@
 package com.hugomatilla.android_theming_colors
 
 import android.os.Bundle
-import android.view.ViewGroup.LayoutParams
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.Button
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
@@ -14,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.hugomatilla.android_theming_colors.R.id
 import kotlinx.android.synthetic.main.activity_main.bottomNavigation
-import kotlinx.android.synthetic.main.activity_main.fragmentContainer
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,21 +27,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
     setupFragments()
     setupBottomNavigation()
-    addDarkModeButton()  // uncomment to see the darkMode button
-  }
 
-  private fun addDarkModeButton() {
-    val darkButton =
-      Button(this).apply {
-        text = "Dark Mode Toggle"
-        layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-      }
-    fragmentContainer.addView(darkButton)
-
-    darkButton.setOnClickListener {
-      val goDark = getDefaultNightMode() != MODE_NIGHT_YES
-      AppCompatDelegate.setDefaultNightMode(if (goDark) MODE_NIGHT_YES else MODE_NIGHT_NO)
-    }
   }
 
   private fun setupFragments() {
@@ -97,6 +80,23 @@ class MainActivity : AppCompatActivity() {
     val itemId = savedInstanceState.getInt(LAST_SELECTED_ITEM, R.id.simple)
     showFragmentByMenuItemId(itemId)
     bottomNavigation.selectedItemId = itemId
+  }
+
+  override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    val inflater = menuInflater
+    inflater.inflate(R.menu.main_menu, menu)
+    return true
+  }
+
+  override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+    id.darkToggle -> {
+      val goDark = getDefaultNightMode() != MODE_NIGHT_YES
+      AppCompatDelegate.setDefaultNightMode(if (goDark) MODE_NIGHT_YES else MODE_NIGHT_NO)
+      true
+    }
+    else -> {
+      super.onOptionsItemSelected(item)
+    }
   }
 
   companion object {

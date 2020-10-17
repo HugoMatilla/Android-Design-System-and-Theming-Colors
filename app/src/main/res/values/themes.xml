@@ -6,7 +6,7 @@
 
   <style name="Theme.MyApp.Default" parent="Theme.MyApp">
     <item name="colorPrimary">@color/brandPink</item>
-    <item name="colorPrimaryDark">@color/brandPinkDark</item>
+    <item name="colorPrimaryDark">@color/brandPinkDark</item>  <!-- For the status bar -->
     <item name="colorPrimaryVariant">@color/brandPinkDark</item>
     <item name="colorSecondary">@color/brandGreen</item>
     <item name="colorSecondaryVariant">@color/brandGreenDark</item>
@@ -14,12 +14,11 @@
   </style>
 
   <style name="ThemeOverlay.MyApp.Inverse" parent="">
-    <item name="colorOnPrimary">@color/brandPink</item>
-    <item name="colorOnPrimarySurface">@color/white</item>
-    <item name="colorOnSurface">@color/white</item>
-    <item name="colorSurface">@color/brandPinkDark</item>
     <item name="colorPrimary">@color/white</item>
     <item name="colorPrimaryVariant">@color/whiteDark</item>d
+    <item name="colorOnPrimary">@color/brandPink</item>
+    <item name="colorOnSurface">@color/white</item>
+    <item name="colorSurface">@color/brandPinkDark</item>
     <item name="android:textColor">@color/white</item>
   </style>
 
@@ -28,6 +27,7 @@
     <item name="colorPrimaryDark">@color/brandVioletPremiumDark</item>
     <item name="colorPrimaryVariant">@color/brandVioletPremiumDark</item>
     <item name="colorSecondary">@color/brandPinkPremium</item>
+    <item name="colorOnSecondary">@color/blackLight</item>
     <item name="colorSecondaryVariant">@color/brandPinkPremiumDark</item>
     <item name="fabBackgroundColor">@color/orangePremium</item>
   </style>

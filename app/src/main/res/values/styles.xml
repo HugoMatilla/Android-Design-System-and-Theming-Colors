@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
+  <style name="Widget.MyApp.Button.MixedColors" parent="Widget.MaterialComponents.Button">
+    <item name="android:textColor">?attr/colorPrimaryVariant</item>
+    <item name="backgroundTint">?attr/colorSecondary</item>
+  </style>
+
   <style name="Widget.MyApp.Button" parent="">
     <item name="android:textColor">?attr/colorOnPrimary</item>
     <item name="backgroundTint">?attr/colorSecondary</item>
