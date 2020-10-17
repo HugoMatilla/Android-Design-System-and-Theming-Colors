@@ -6,10 +6,16 @@
 - [2. Color naming](#2-color-naming)
 - [3. Color theme attributes](#3-color-theme-attributes)
 - [4. Update your theme with your colors](#4-update-your-theme-with-your-colors)
+  - [4.1 Note about naming and files:](#41-note-about-naming-and-files)
 - [5. Widgets and default attributes.](#5-widgets-and-default-attributes)
+  - [5.1. Widget Customization](#51-widget-customization)
 - [6. More Themes](#6-more-themes)
+  - [6.1. Theme Overlays](#61-theme-overlays)
 - [7. What if 12 attributes are not enough](#7-what-if-12-attributes-are-not-enough)
 - [8. Extra](#8-extra)
+  - [8.1. Use a Base Theme](#81-use-a-base-theme)
+  - [8.2. Dark Theme](#82-dark-theme)
+  - [8.3. PrimarySurface](#83-primarysurface)
 - [9. Recap](#9-recap)
 - [10. Conclusions](#10-conclusions)
 
@@ -419,7 +425,7 @@ Dark Theme is a big topic that will be fit best in a differnt post. But to give 
 
 Now you can see your app in dark mode with the default values. 
 
-### 8.2.1. PrimarySurface
+## 8.3. PrimarySurface
  `colorPrimarySurface` is a theme attribute (and also a variant of some styles) that helps while working with surfaces in darkmode.
 
  Many colored widget surfaces are set to the primary color. Like the **Toolbar** or **Bottombar**, but in case we change the theme to a dark theme the primary color as surface color in these views does not look appropriate.
