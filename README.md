@@ -1,4 +1,4 @@
-Companion App for the Article `Android App Theming: Colors` published in : [Not yet published]() You also can read it in the readme
+Companion App for the Article `Android App Theming: Colors` published in : [hugomatilla.com](hugomatilla.com/blog) You also can read it in the readme
 <div style= "display: flex; flex-flow: row wrap; justify-content: space-between;">
     <img src="imgs/app-simple.jpg" width="120">
     <img src="imgs/app-palette.jpg" width="120">
@@ -70,7 +70,7 @@ I will use these.
   <color name="brandGreen">#00CCAA</color>
   <color name="brandGreenDark">#02A287</color>
 </resources>
-```  
+```
 
 Now that we have our colors  we have to set them in our theme attributes.
   
@@ -288,7 +288,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     setTheme(R.style.Theme_MyApp_Alternative) 
     setContentView(R.layout.activity_main)
 }
-```    
+```
 
 In a fragment setting the theme programmatically is done like this:
 ```kotlin
@@ -335,7 +335,7 @@ Here is an excerpt:
     ...
     android:background="?attr/colorSurface">
     
-```    
+```
 
 As you can see in the sample app I had to change the background in the layout `android:background="?attr/colorSurface"` so it gets the proper surface color in the background.
 Also, I needed to change the text color in the style.
@@ -390,7 +390,7 @@ We can define a custom theme attribute that will be used to tint the fab buttons
   style="@style/Widget.MyApp.ExtendedFloatingActionButton.Alternative"
   />
 
-``` 
+```
 
 ![ALT THEME](imgs/alt-theme.png)
 
@@ -461,7 +461,7 @@ In the companions app `activity_main.xml` the **BottomBar** styles is  `Widget.M
 
 If we instead used `Widget.MaterialComponents.BottomNavigationView.Colored` when the Dark Mode is turned on, the **BottomBar** will be colored as primary. 
 
- ```xml
+```xml
 <com.google.android.material.bottomnavigation.BottomNavigationView
     ...     
     style="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface"
