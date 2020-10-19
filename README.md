@@ -1,11 +1,11 @@
 Companion App for the Article `Android App Theming: Colors` published in : [Not yet published]() You also can read it in the readme
 <div style= "display: flex; flex-flow: row wrap; justify-content: space-between;">
-    <img src="imgs/app-simple.jpg" width="140">
-    <img src="imgs/app-palette.jpg" width="140">
-    <img src="imgs/app-overlay.jpg" width="140">
-    <img src="imgs/app-widgets.jpg" width="140">
-    <img src="imgs/app-alternative.jpg" width="140">
-    <img src="imgs/app-simple-dark.jpg" width="140">
+    <img src="imgs/app-simple.jpg" width="120">
+    <img src="imgs/app-palette.jpg" width="120">
+    <img src="imgs/app-overlay.jpg" width="120">
+    <img src="imgs/app-widgets.jpg" width="120">
+    <img src="imgs/app-alternative.jpg" width="120">
+    <img src="imgs/app-simple-dark.jpg" width="120">
 </div>
 
 # Android Design System and Theming: Colors
