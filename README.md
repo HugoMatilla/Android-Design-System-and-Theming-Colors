@@ -1,3 +1,13 @@
+Companion App for the Article `Android App Theming: Colors` published in : [Not yet published]() You also can read it in the readme
+<div style= "display: flex; flex-flow: row wrap; justify-content: space-between;">
+    <img src="imgs/app-simple.jpg" width="140">
+    <img src="imgs/app-palette.jpg" width="140">
+    <img src="imgs/app-overlay.jpg" width="140">
+    <img src="imgs/app-widgets.jpg" width="140">
+    <img src="imgs/app-alternative.jpg" width="140">
+    <img src="imgs/app-simple-dark.jpg" width="140">
+</div>
+
 # Android Design System and Theming: Colors
 <!-- TOC -->
 
@@ -214,8 +224,6 @@ The button content color is set to `colorPrimary` and `colorOnPrimary` for the t
     />
 ```
 
-
-
 The Material Design website has all the information about theme attributes so is very easy to understand and modify how they work.
 
 Here is an extract of the Container Attributes of the [Contained button Component Docs](https://material.io/develop/android/components/buttons#contained-button)
@@ -262,10 +270,9 @@ As mentioned before in [4.1.1 Naming Styles](#411-naming-styles), name the style
 
 ```
 
-
 > Check the companion app to see how some widgets are painted just defining a theme and letting the Android and the default values do the rest.
 
-<img src="imgs/widgtes.jpg" alt="Widgets" width="350"/>
+<img src="imgs/app-widgets-full.jpg" alt="Widgets" width="350"/>
 
 # 6. More Themes
 Your app might have different versions like Free and Premium and you want to have different looks between both. 
