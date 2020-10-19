@@ -7,6 +7,10 @@
     <item name="backgroundTint">?attr/colorSecondary</item>
   </style>
 
+  <style name="Widget.MyApp.ExtendedFloatingActionButton.Alternative" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+    <item name="backgroundTint">?attr/fabBackgroundColor</item>
+  </style>
+
   <style name="Widget.MyApp.Button" parent="">
     <item name="android:textColor">?attr/colorOnPrimary</item>
     <item name="backgroundTint">?attr/colorSecondary</item>
