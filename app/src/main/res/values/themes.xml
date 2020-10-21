@@ -1,7 +1,8 @@
 <resources>
   <!-- Base application theme. -->
   <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-    <!--    Here will be some attributes definitions for all themes that are not overrides. Probably shapes and typefaces -->
+    <!--    Here will be some attributes definitions for all themes that are not overrides. Probably shapes, typefaces and some widgets -->
+    <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface</item>
   </style>
 
   <style name="Theme.MyApp.Default" parent="Theme.MyApp">

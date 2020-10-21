@@ -17,7 +17,6 @@
 
   <com.google.android.material.bottomnavigation.BottomNavigationView
     android:id="@+id/bottomNavigation"
-    style="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface"
     android:layout_width="0dp"
     android:layout_height="56dp"
     android:layout_gravity="bottom"
