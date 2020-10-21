@@ -250,6 +250,10 @@ Android engineers recommend using Material Design Components. You can read more 
 
 There are a couple of places where this can be more complicated than it looks, but most of the time you won't have problems.
 
+> Check the companion app to see how some widgets are painted just defining a theme and letting the Android and the default values do the rest.
+
+<img src="imgs/app-widgets-full.jpg" alt="Widgets" width="350"/>
+
 ## 5.1. Widget Customization 
 In case you need to customize a widget, start from the Base Material Widget, and create a specific style for it. 
 
@@ -271,7 +275,7 @@ As mentioned before in [4.1.1 Naming Styles](#411-naming-styles), name the style
 
 ```
 ## 5.2 Widget Customization with Widgets Theme Attributes
-There are many theme-attributes related to Material Widgets. You can set these theme attributes in your theme to a specific style, and forget about setting the style in the view.
+There are many theme-attributes related to Material Widgets, like `buttonStyle`, `appBarLayoutStyle` and `bottomNavigationStyle`. You can set these theme attributes in your theme to a specific style, and forget about setting the style in the view.
 
 With this technic, we avoid adding styles directly in the view and reduce the risk of adding a wrong one.
 
@@ -295,11 +299,6 @@ With this technic, we avoid adding styles directly in the view and reduce the ri
     <!-- The view does not need to set the style. It is referenced automatically to the one in the Theme -->
 >
 ```
-
-
-> Check the companion app to see how some widgets are painted just defining a theme and letting the Android and the default values do the rest.
-
-<img src="imgs/app-widgets-full.jpg" alt="Widgets" width="350"/>
 
 # 6. I need more Themes
 Your app might have different versions like Free and Premium and you want to have different looks between both. 
@@ -335,7 +334,7 @@ Here you can find the official [*setTheme* documentation](https://developer.andr
 
 
 ## 6.1. Theme Overlays
-There are times that you need to change the theme but only in a fraction of your view hierarchy. For that, there is the Theme Overlay Technic.
+There are times that you need to change the theme but only in a fraction of your view hierarchy. For that, there is the Themes Overlays technic.
 This topic was already covered in [my previous post](https://github.com/HugoMatilla/Android-Design-System-and-Theming-Typography#overlays). 
 
 Here is an excerpt:
@@ -383,10 +382,10 @@ When applying theme overlays in XML, there are two options to consider:
 You can read more about theme overlays in the Google Developers Blog Post [Android Styling: themes overlay](https://medium.com/androiddevelopers/android-styling-themes-overlay-1ffd57745207)
 
 # 7. What if 12 attributes are not enough?
-One of the powers of theming is the ability to change the whole UI styles easily. Imagine this scenario, your app has 2 themes for normal and premium users.
+One of the powers of theming is the ability to change the whole UI styles easily. Imagine this scenario: your app has 2 themes for normal and premium users.
 The primary color is different for both, just creating a new theme with a different primary color and changing the theme for each of the user types will be sufficient.
 
-But imagine that our design team wants a specific FAB button color for the prime members, that is not the prime secondary color. In that case and because FAB buttons use `colorSecondary` attribute to tint it, we need a solution.
+Now imagine that our design team wants a specific FAB button color for the premium members, which is not the same as the premium secondary color. In this case and because FAB buttons use `colorSecondary` attribute to tint it, we need a solution.
 
 We can define a custom theme attribute that will be used to tint the fab buttons, instead of the default attribute (in this case `colorSecondary`).
 
@@ -406,14 +405,14 @@ We can define a custom theme attribute that will be used to tint the fab buttons
 </style>
 
 <!-- res/values/styles.xml -->
-<style name="Widget.MyApp.ExtendedFloatingActionButton.Alternative" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+<style name="Widget.MyApp.ExtendedFloatingActionButton" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
     <item name="backgroundTint">?attr/fabBackgroundColor</item> 
 </style>
 
 <!-- Layout -->
 <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
   ...
-  style="@style/Widget.MyApp.ExtendedFloatingActionButton.Alternative"
+  style="@style/Widget.MyApp.ExtendedFloatingActionButton"
   />
 
 ```
@@ -427,7 +426,7 @@ You can see in the images above how the `EXTENDED FAB` is colored as a default F
 # 8. Extra
 
 ## 8.1. Use a Base Theme
-It is a good practice to have a Base Theme where you add things that won't change for any theme, like text appearances, shapes  or widgets default styles, and create specific themes inheriting from it.
+It is a good practice to have a Base Theme where you add things that won't change for any theme, like text appearances, shapes or widgets default styles, and create specific themes inheriting from it.
 
 ```xml
   <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -448,7 +447,7 @@ It is a good practice to have a Base Theme where you add things that won't chang
 ```
 
 ## 8.2. Dark Theme
-Dark Theme is a big topic that will be fit best in a different post. But to give it a try in your app you can do these simple steps:
+Dark Theme is a big topic that will fit best in a different post. But to give it a try in your app you can do these simple steps:
 
 * First create a file in `res/values-night` and call it `theme.xml`
 * Secondly, create a theme with the same name as your primary theme name (the one you set in the manifest). You can simply copy and paste it. 
@@ -485,7 +484,7 @@ Several colored widget surfaces are set to the primary color. Like the **Toolbar
 For these cases there are `colorPrimarySurface` and `colorPrimaryOnSurface`. Widgets can use these attributes as backgroundTints so in Light Theme the primary color will be used, but in Dark Themes a dark surface color will be selected.
 
 We can see this behavior in the **BottomBar** style.
-In the companion's app `activity_main.xml` the **BottomBar** style is  `Widget.MaterialComponents.BottomNavigationView.PrimarySurface`. When we turn on the Dark Mode the **BottomBar** will be colored as dark grey. 
+In the companion app,the **BottomBar** style is  `Widget.MaterialComponents.BottomNavigationView.PrimarySurface`. When we turn on the Dark Mode the **BottomBar** will be colored as dark grey. 
 
 If we instead used `Widget.MaterialComponents.BottomNavigationView.Colored` when the Dark Mode is turned on, the **BottomBar** will be colored as primary. 
 
@@ -515,7 +514,7 @@ Android Theming is a powerful technic that can help us to have a cohesive UI and
 
 The topic is big, and there are many things to learn, but to have a base theme is straight forward and as you saw in the recap section there are only 4 easy steps.  (In Android Studio 4.1 the first 3 steps are already done in new projects)
 
-If you haven't yet, you can check my previous article **CHANGE LINK** [Android Design System and Theming: Typography](https://github.com/HugoMatilla/Android-Design-System-and-Theming-Typography#android-design-system-and-theming-typography). And as I mentioned there the general topics here presented can be applied also to text appearances and shapes.
+If you haven't yet, you can check my previous article  [Android Design System and Theming: Typography](https://github.com/HugoMatilla/Android-Design-System-and-Theming-Typography#android-design-system-and-theming-typography). And as I mentioned there, the general topics here presented can be applied also to text appearances and shapes.
 
 Before saying goodbye I recommend you checking this Android Dev Summit talk [Developing Themes with Style](https://www.youtube.com/watch?v=Owkf8DhAOSo) by [Nick Butcher](https://twitter.com/crafty) and [Chris Banes](https://twitter.com/chrisbanes). There are also several [posts in Android Developers Medium](https://medium.com/androiddevelopers/tagged/design) by the Android Design Team covering all topics about theming and styling.
 

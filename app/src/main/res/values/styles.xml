@@ -7,7 +7,7 @@
     <item name="backgroundTint">?attr/colorSecondary</item>
   </style>
 
-  <style name="Widget.MyApp.ExtendedFloatingActionButton.Alternative" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+  <style name="Widget.MyApp.ExtendedFloatingActionButton" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
     <item name="backgroundTint">?attr/fabBackgroundColor</item>
   </style>
 
