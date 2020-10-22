@@ -16,17 +16,10 @@ Companion App for the Article `Android App Theming: Colors` published in : [hugo
 - [2. Color naming](#2-color-naming)
 - [3. Color theme attributes](#3-color-theme-attributes)
 - [4. Update your theme with your colors](#4-update-your-theme-with-your-colors)
-  - [4.1 Note about naming and files:](#41-note-about-naming-and-files)
 - [5. Widgets and default attributes.](#5-widgets-and-default-attributes)
-  - [5.1. Widget Customization](#51-widget-customization)
-  - [5.2 Widget Customization with Widgets Theme Attributes](#52-widget-customization-with-widgets-theme-attributes)
 - [6. I need more Themes](#6-i-need-more-themes)
-  - [6.1. Theme Overlays](#61-theme-overlays)
 - [7. What if 12 attributes are not enough?](#7-what-if-12-attributes-are-not-enough)
 - [8. Extra](#8-extra)
-  - [8.1. Use a Base Theme](#81-use-a-base-theme)
-  - [8.2. Dark Theme](#82-dark-theme)
-  - [8.3. PrimarySurface](#83-primarysurface)
 - [9. Recap](#9-recap)
 - [10. Conclusions](#10-conclusions)
 
@@ -521,3 +514,5 @@ Before saying goodbye I recommend you checking this Android Dev Summit talk [Dev
 Finally, I hope this article helps you to understand Android Theming and Styling a bit better.
 
 Thank you for reading.
+
+PS: Thanks to @naufalaros for reviewing the article 😉
